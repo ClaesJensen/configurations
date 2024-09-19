@@ -1,0 +1,476 @@
+/**
+* User settings for VS Code
+*
+* Author: Claes Jensen
+*/
+{
+    //************************************************************************//
+    //                             C/C++ Settings                             //
+    //************************************************************************//
+    // C/C++ Related Custom Paths
+    "custompath.mingw": "C:/MinGW/bin",
+    "custompath.gnuarm": "C:/Program Files (x86)/GNU Arm Embedded Toolchain/10 2021.10/bin",
+    // "custompath.iararm" : "C:/Program Files/IAR Systems/Embedded Workbench 9.1",
+    "custompath.iararm": "C:/Program Files/IAR Systems/Embedded Workbench 9.0", // For NBIoT Mk 1.5
+    "python.pythonPath": "c:/python27/python.exe", // For NBIoT Mk 1.5
+    "custompath.iararm_9.30.1": "C:/Program Files/IAR Systems/Embedded Workbench 9.1",
+    "custompath.iararm_9.32.2": "C:/Program Files/IAR Systems/Embedded Workbench 9.1_2", // For OMS LPWAN Burst Mode
+    "custompath.jlink": "C:/Program Files (x86)/SEGGER/JLink",
+    "custompath.llvm": "C:/Program Files/LLVM/bin",
+    "custompath.ruby": "C:/Ruby24/bin",
+    // C/C++ Plugin
+    "C_Cpp.default.cppStandard": "c++14",
+    "C_Cpp.default.cStandard": "c11",
+    "C_Cpp.enhancedColorization": "disabled",
+    "C_Cpp.clang_format_style": "file",
+    // Cortex M Debug Plugin
+    // set clang format fallback style
+    "C_Cpp.fallbackStyle": "Microsoft",
+    "cortex-debug.JLinkGDBServerPath": "${config:custompath.jlink}/JLinkGDBServerCL.exe", // JLink executable path for debugging
+    "cortex-debug.armToolchainPath": "${config:custompath.gnuarm}",
+    "python.terminal.activateEnvironment": false, // Disable auto-activate of default env
+    //************************************************************************//
+    //                             VS Code Settings                           //
+    //************************************************************************//
+    /* Terminal Settings */
+    "terminal.integrated.fontFamily": "monospace",
+    "terminal.integrated.profiles.windows": {
+        "PowerShell": {
+            "source": "PowerShell",
+            "icon": "terminal-powershell"
+        },
+        "Command Prompt": {
+            "path": [
+                "${env:windir}\\Sysnative\\cmd.exe",
+                "${env:windir}\\System32\\cmd.exe"
+            ],
+            "args": [],
+            "icon": "terminal-cmd"
+        },
+        "GitBash": {
+            "path": "C:/Program Files (x86)/Git/bin/bash.exe",
+            "icon": "terminal-bash"
+        },
+    },
+    "terminal.integrated.defaultProfile.windows": "GitBash", // Default terminal
+    // "terminal.integrated.defaultProfile.windows": "PowerShell", // Default terminal
+    "terminal.integrated.copyOnSelection": true,
+    /* File Settings */
+    "files.associations": {
+        "*.h": "c",
+        "*.c": "c",
+        "*.hpp": "cpp",
+        "*.cpp": "cpp",
+        "*.json": "json",
+    },
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/*.pyc": true,
+        "**/__pycache__": true,
+    },
+    /* Editor Settings */
+    "editor.minimap.enabled": false, // Disable mini-map
+    "editor.fontFamily": "Consolas, 'Courier New', monospace", // Defualt font (#1) & fallback fonts
+    "editor.fontSize": 14, // blink, smooth, phase, expand, solid
+    "[c]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools", // Default c formatter = clang
+        "editor.formatOnSave": true // Auto Clang enabled
+    },
+    "[cpp]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools", // Defualt c++ formatter = clang
+        "editor.formatOnSave": true // Auto Clang enabled
+    },
+    "[json]": {
+        "editor.formatOnSave": false,
+        "editor.quickSuggestions": {
+            "strings": true
+        },
+        "editor.suggest.insertMode": "replace",
+        "gitlens.codeLens.scopes": [
+            "document"
+        ]
+    },
+    "security.workspace.trust.untrustedFiles": "open", // Trust "untrusted" files
+    "explorer.confirmDragAndDrop": false, // Don't ask "are you sure?" when I move files
+    "debug.onTaskErrors": "debugAnyway", // Don't ask to debug anyway if there are errors
+    "workbench.colorTheme": "Monokai",
+    //************************************************************************//
+    //                                VIM Settings                            //
+    //************************************************************************//
+    // https://marketplace.visualstudio.com/items?itemName=vscodevim.vim
+    "vim.leader": "`", // Character to start personal key bindings
+    "vim.useSystemClipboard": true, // Allow to copy/paste between VIM and other PC stuff
+    "vim.easymotion": true, // Navigate easily using <leader><leader>{char}
+    "vim.incsearch": true, // Highlight test when using / to search
+    "vim.searchHighlightColor": "#FBFF0040", // Color to highlight text when searching with /
+    "vim.mouseSelectionGoesIntoVisualMode": true, // Copying text with mouse puts you into visual mode
+    "vim.useCtrlKeys": true, // Disable VS Code Ctrl keys
+    "vim.smartcase": true,
+    /* Cursor style */
+    "vim.cursorStylePerMode.normal": "block", // Block, line, line-thin, underline, text-decoration, native
+    "vim.cursorStylePerMode.insert": "line", // Cursor is a line in 'insert' mode
+    "vim.cursorStylePerMode.visual": "block-outline", // Cursor block has an outline when in 'visual' mode
+    /* Yanking (copying) */
+    "vim.highlightedyank.enable": true, // Flash a color for a certain duration when yanking
+    "vim.highlightedyank.duration": 250,
+    "vim.highlightedyank.color": "rgba(250, 240, 170, 0.3)",
+    /* Custom VIM hotkeys for different editing modes */
+    /* Insert Mode Key Bindings */
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }, // "jj" acts as escape as well.
+        {
+            "before": [
+                "<leader>",
+                "p"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.indentLines",
+                    "args": [],
+                }
+            ]
+        }, // Shift right
+        {
+            "before": [
+                "<leader>",
+                "o"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.outdentLines",
+                    "args": [],
+                }
+            ]
+        }, // Shift left
+    ],
+    /* Visual Mode Key Bindings */
+    "vim.visualModeKeyBindings": [
+        {
+            "before": [
+                "<leader>",
+                "c",
+                "c"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.commentLine",
+                    "args": [],
+                }
+            ]
+        }, // Toggle comment
+        {
+            "before": [
+                "<leader>",
+                "p"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.indentLines",
+                    "args": [],
+                }
+            ]
+        }, // Shift right
+        {
+            "before": [
+                "<leader>",
+                "o"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.outdentLines",
+                    "args": [],
+                }
+            ]
+        }, // Shift left
+        {
+            "before": [
+                "/"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "actions.find",
+                    "args": [],
+                }
+            ]
+        }, // Replaces VIM find w/ VS codes.
+        {
+            "before": [
+                "f"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.findInFiles",
+                    "args": [],
+                }
+            ]
+        }, // Search in files (i.e. Ctrl+shift+f)
+    ],
+    /* Normal Mode Key Bindings */
+    "vim.normalModeKeyBindings": [
+        {
+            "before": [
+                "<leader>",
+                "c",
+                "c"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.commentLine",
+                    "args": [],
+                }
+            ]
+        }, // Toggle comment
+        // { "before": ["<leader>", "o"],      "after": [], "commands": [ "workbench.action.navigateToLastEditLocation", ] }, // Navigate to last edit
+        {
+            "before": [
+                "<leader>",
+                "p"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.indentLines",
+                    "args": [],
+                }
+            ]
+        }, // Shift right
+        {
+            "before": [
+                "<leader>",
+                "o"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.outdentLines",
+                    "args": [],
+                }
+            ]
+        }, // Shift left
+        {
+            "before": [
+                "n",
+                "j"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.moveLinesDownAction",
+                    "args": [],
+                }
+            ]
+        }, // Move line down
+        {
+            "before": [
+                "n",
+                "k"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.moveLinesUpAction",
+                    "args": [],
+                }
+            ]
+        }, // Move line up
+        {
+            "before": [
+                "/"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "actions.find",
+                    "args": [],
+                }
+            ]
+        }, // Replaces VIM find w/ VS codes.
+        {
+            "before": [
+                "<leader>",
+                "b"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.tasks.reRunTask",
+                    "args": [],
+                }
+            ]
+        }, // Rerun last task
+    ],
+    //************************************************************************//
+    //                             DOXYGEN Settings                           //
+    //************************************************************************//
+    // This plug-in is used to easily make function & file descriptions. Jusy type /** + Enter
+    // "doxdocgen.c.triggerSequence": "/**",
+    "doxdocgen.file.versionTag": "", // Version number for the file.
+    "doxdocgen.generic.authorEmail": "gmsg@kamstrup.com", // Set email address of author
+    "doxdocgen.generic.authorName": "Graham Spaulding", // Set name of author
+    "doxdocgen.generic.authorTag": "@author {author} <{email}>", // Set tag template
+    "doxdocgen.file.fileTemplate": "@file   {name}",
+    "doxdocgen.file.copyrightTag": [
+        ""
+    ], // File copyright documentation tag.  Array of strings will be converted to one line per element.  Can template {year}.
+    "doxdocgen.generic.briefTemplate": "", // The template of the brief Doxygen line that is generated. If empty it won't get generated at all.
+    "doxdocgen.generic.dateFormat": "DD-MM-YYYY", // The format to use for the date.
+    "doxdocgen.generic.dateTemplate": "@date   {date}",
+    "doxdocgen.file.fileOrder": [
+        "empty",
+        "empty",
+        "file",
+        "author",
+        "date",
+    ],
+    "doxdocgen.generic.includeTypeAtReturn": true, // Whether include type information at return.
+    "doxdocgen.generic.order": [
+        "empty",
+        "tparam",
+        "param",
+        "return"
+    ], // The order to use for the comment generation. Values can be used multiple times. Valid values are shown in default setting.
+    "doxdocgen.generic.linesToGet": 20, // How many lines the plugin should look for to find the end of the declaration. Please be aware that setting this value too low could improve the speed of comment generation by a very slim margin but the plugin also may not correctly detect all declarations or definitions anymore.
+    "doxdocgen.c.lastLine": " */",
+    //************************************************************************//
+    //                       psioniq file header Settings                     //
+    //************************************************************************//
+    // This plug-in is used to print the Kamstrup copyright header. Just type F1 + Header Insert
+    "psi-header.config": {
+        "forceToTop": true,
+    },
+    "psi-header.variables": [
+        [
+            "author",
+            "Graham Spaulding"
+        ],
+        [
+            "authoremail",
+            "gmsg@kamstrup.com"
+        ],
+        [
+            "company",
+            "Kamstrup A/S"
+        ],
+        [
+            "initials",
+            "GMSG"
+        ],
+    ],
+    "psi-header.templates": [
+        {
+            "language": "c",
+            "template": [
+                "/****************************************************************************",
+                " * Copyright (C) <<company>>, <<year>>. All rights reserved.",
+                " ****************************************************************************/",
+            ],
+        },
+        {
+            "language": "cpp",
+            "template": [
+                "/****************************************************************************",
+                " * Copyright (C) <<company>>, <<year>>. All rights reserved.",
+                " ****************************************************************************/",
+            ],
+        },
+        {
+            "language": "python",
+            "template": [
+                "",
+                "Copyright: <<company>>, <<year>>. All rights reserved.",
+                "",
+                "Authors:\t<<author>> <<<authoremail>>>",
+                "",
+                "Date:\t\t<<filecreated('DD-MM-YYYY')>>",
+                "",
+                "[Detailed description]",
+                ""
+            ],
+        },
+    ],
+    "psi-header.lang-config": [
+        {
+            "language": "c",
+            "begin": "",
+            "end": "",
+            "prefix": ""
+        }, // only print kamstrup copyright thing
+        {
+            "language": "cpp",
+            "begin": "",
+            "end": "",
+            "prefix": ""
+        },
+        {
+            "language": "python",
+            "begin": "\"\"\"[Short Description]",
+            "end": "\"\"\"",
+            "prefix": "",
+            "beforeHeader": [
+                "#!/usr/bin/env python3",
+                "# -*- coding:utf-8 -*-"
+            ],
+        }
+    ],
+    //************************************************************************//
+    //                            Git/GitLens Settings                        //
+    //************************************************************************//
+    /* VS Code Native Git Settings */
+    "git.allowForcePush": true, // Allow force pushing (required for rebasing)
+    "git.autofetch": "all", // Automatically fetch all changes from remote
+    "git.autofetchPeriod": 180, // Fetch all remote changes every x seconds
+    /* Gitlens plugin */
+    "gitlens.statusBar.enabled": false,
+    "[python]": {},
+    "idf.espIdfPath": "/home/claes/esp/esp-idf",
+    "idf.pythonBinPath": "/home/claes/.espressif/python_env/idf5.1_py3.10_env/bin/python",
+    "idf.toolsPath": "/home/claes/.espressif",
+    "idf.customExtraPaths": "/home/claes/.espressif/tools/xtensa-esp-elf-gdb/12.1_20221002/xtensa-esp-elf-gdb/bin:/home/claes/.espressif/tools/riscv32-esp-elf-gdb/12.1_20221002/riscv32-esp-elf-gdb/bin:/home/claes/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/bin:/home/claes/.espressif/tools/xtensa-esp32s2-elf/esp-12.2.0_20230208/xtensa-esp32s2-elf/bin:/home/claes/.espressif/tools/xtensa-esp32s3-elf/esp-12.2.0_20230208/xtensa-esp32s3-elf/bin:/home/claes/.espressif/tools/riscv32-esp-elf/esp-12.2.0_20230208/riscv32-esp-elf/bin:/home/claes/.espressif/tools/esp32ulp-elf/2.35_20220830/esp32ulp-elf/bin:/home/claes/.espressif/tools/openocd-esp32/v0.12.0-esp32-20230419/openocd-esp32/bin:/home/claes/.espressif/tools/esp-rom-elfs/20230320",
+    "idf.customExtraVars": {
+        "OPENOCD_SCRIPTS": "/home/claes/.espressif/tools/openocd-esp32/v0.12.0-esp32-20230419/openocd-esp32/share/openocd/scripts",
+        "ESP_ROM_ELF_DIR": "/home/claes/.espressif/tools/esp-rom-elfs/20230320/"
+    },
+    "idf.gitPath": "git",
+    "code-runner.runInTerminal": true,
+    "editor.cursorStyle": "block",
+    "workbench.iconTheme": "Monokai Pro (Filter Machine) Icons",
+    "git.openRepositoryInParentFolders": "never",
+    "C_Cpp.clang_format_fallbackStyle": "Google",
+    "clangd.path": "/home/claes/.config/Code/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/16.0.2/clangd_16.0.2/bin/clangd",
+    "files.autoSave": "afterDelay",
+    "settingsSync.ignoredExtensions": [
+        "espressif.esp-idf-extension",
+        "platformio.platformio-ide"
+    ],
+    "C_Cpp.default.intelliSenseMode": "linux-clang-x86",
+    "C_Cpp.autocompleteAddParentheses": true,
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": true,
+        "scminput": false
+    },
+    "git.enableSmartCommit": true,
+    "github.copilot.editor.enableAutoCompletions": true,
+}
